@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="css/normalize.css" media="screen" type="text/css" />
+<link href="css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="css/slidebars.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css" media="screen" type="text/css" />
+<link href="css/example-styles.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+
+
+
+<script src="js/Chart.js"></script>
+
+<title>Home Page</title>
+
+<style>
+  body{
+    padding: 0;
+    margin: 0 auto;
+  }
+  #canvas-holder{
+    width:60%;
+    margin:auto;
+  }
+</style>
+
+</head>
+<body>
+
+  <div id="sb-site">
+    <label id="icon" <i class="fa fa-align-justify fa-3x sb-toggle-left"></i></label>
+  <div class="container">
+    <div id="canvas-holder">
+      <canvas id="chart-area" width="500" height="500"/>
+    </div>
+<!--    <div id="pie-hunger"></div> -->
+
+  <h1 class="text-center">Today </h1>
+
+</div>
+</div>
+<div class="sb-slidebar sb-left sb-active">
+		<ul class="sb-menu">
+			<li><img src="img/HungryBot.png" alt="Slidebars" width="118" height="40"></li>
+      <li></li>
+      <li class="sb-close"><a href="History.html"><i class="fa fa-calendar-o" aria-hidden="true"></i> History</a></li>
+			<li class="sb-close"><a href="User.html">User Profile</a></li>
+      <li class="sb-close"><a href="contacts.html">Contacts</a></li>
+      <li class="sb-close"><a href="Setting.html">Settings</a></li>
+      <li> </li>
+			<li class="sb-close"><small>HungryBot © 2015</small></li>
+		</ul>
+
+</div>
+
+
+<script>
+
+var doughnutData = [
+    {
+      value: 1,
+      color:"#F7464A",
+      highlight: "#FF5A5E",
+      label: "Lunch"
+    },
+    {
+      value: 1,
+      color: "#46BFBD",
+      highlight: "#5AD3D1",
+      label: "Tea Time"
+    },
+    {
+      value: 1,
+      color: "#FDB45C",
+      highlight: "#FFC870",
+      label: "Dinner"
+    },
+    {
+      value: 1,
+      color: "#949FB1",
+      highlight: "#A8B3C5",
+      label: "Supper"
+    },
+    {
+      value: 1,
+      color: "#4D5360",
+      highlight: "#616774",
+      label: "Breakfast"
+    }
+
+  ];
+
+  window.onload = function(){
+    var ctx = document.getElementById("chart-area").getContext("2d");
+    window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {responsive : true});
+  };
+
+
+
+</script>
+
+
+  <!-- jQuery -->
+    <script src="js/jquery-1.11.3.min.js"></script>
+
+    <!-- Slidebars -->
+    <script src="js/slidebars.min.js"></script>
+    <script>
+  (function($) {
+  $(document).ready(function() {
+    $.slidebars({
+      siteClose: true, // true or false
+      disableOver: 480, // integer or false
+      hideControlClasses: true, // true or false
+      scrollLock: false // true or false
+    });
+  });
+  }) (jQuery);
+  </script>
+
+  <script src="js/morris.js"></script>
+</body>
+
+</html>
