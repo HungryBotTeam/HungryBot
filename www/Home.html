@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="css/slidebars.min.css">
 <link rel="stylesheet" href="css/font-awesome.min.css" media="screen" type="text/css" />
 <link href="css/example-styles.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
 
 
 
@@ -30,11 +31,29 @@
 
 </head>
 <body>
-  <div id="sb-site">
-    <label id="icon" <i class="fa fa-align-justify fa-3x sb-toggle-left"></i></label>
+  <nav class="navbar navbar-default navbar-fixed-top sb-slide" role="navigation">
+  			<!-- Left Control -->
+  			<div class="sb-toggle-left navbar-left">
+  				<div class="navicon-line"></div>
+  				<div class="navicon-line"></div>
+  				<div class="navicon-line"></div>
+  			</div><!-- /.sb-control-left -->
 
+
+  			<div class="container">
+  				<!-- Logo -->
+  				<div id="logo" class="navbar-left">
+          <img src="img/HungryBot.png" alt="Slidebars" width="30%" height="30%">
+  				</div><!-- /#logo -->
+
+  				<!-- Menu -->
+
+  			</div>
+  		</nav>
+      <br>
+  <div id="sb-site">
   <div class="container">
-    <div id="canvas-holder">
+  <div id="canvas-holder">
       <canvas id="chart-area" width="500" height="500"/>
     </div>
 <!--    <div id="pie-hunger"></div> -->
@@ -42,21 +61,22 @@
   <h1 class="text-center">Today </h1>
 
 </div>
-</div>
-<div class="sb-slidebar sb-left">
-    <!-- Your left Slidebar content. -->
-
-
-<div>
-  <span i class="fa fa-times fa-3x sb-toggle-left"></span>
-  <hr>
-  <div class="container">
-  <a href="Calendar.html" class="btn btn-danger btn-lg" role="button"><i class="fa fa-calendar-o" aria-hidden="true"></i> History</a>
 <br>
-  <a href="#" class="btn btn-danger btn-lg" role="button"><i class="fa fa-user" aria-hidden="true"></i> User Profile</a>
-
+<div class="well well-lg">
+  <h5>List</h5>
 </div>
-    </div>
+</div>
+
+<div class="sb-slidebar sb-left sb-active">
+		<ul class="sb-menu">
+      <li class="sb-close"><a href="History.html"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> History</a></li>
+			<li class="sb-close"><a href="User.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> User Profile</a></li>
+      <li class="sb-close"><a href="contacts.html"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Contacts</a></li>
+      <li class="sb-close"><a href="Setting.html"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>  Settings</a></li>
+      <li> </li>
+			<li class="sb-close"><small>HungryBot © 2015</small></li>
+		</ul>
+
 </div>
 
 
@@ -118,7 +138,7 @@ var doughnutData = [
       siteClose: true, // true or false
       disableOver: 480, // integer or false
       hideControlClasses: true, // true or false
-      scrollLock: false // true or false
+      scrollLock: true // true or false
     });
   });
   }) (jQuery);
