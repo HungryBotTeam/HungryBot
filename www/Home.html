@@ -58,13 +58,61 @@
     </div>
 <!--    <div id="pie-hunger"></div> -->
 
-  <h1 class="text-center">Today </h1>
 
 </div>
-<br>
-<div class="well well-lg">
-  <h5>List</h5>
+<div class="container">
+  <h2 class="text-center">Today</h2>
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Breakfast</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse in">
+        <div class="panel-body">Halfboiled egg and Toast</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Lunch</a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+        <div class="panel-body">Rice with chicken curry</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Dinner</a>
+        </h4>
+      </div>
+      <div id="collapse3" class="panel-collapse collapse">
+        <div class="panel-body">Chicken Chop</div>
+      </div>
+    </div>
+  </div>
 </div>
+<!--<div class="container">
+  <h3 class="text-center">Today </h3>
+  <div class="list-group">
+    <a href="#" class="list-group-item list-group-item-success">
+      <h4 class="list-group-item-heading">Breakfast</h4>
+      <p class="list-group-item-text">Halfboiled egg and Toast</p>
+    </a>
+    <a href="#" class="list-group-item list-group-item-info">
+      <h4 class="list-group-item-heading">Lunch</h4>
+      <p class="list-group-item-text">Rice with chicken curry</p>
+    </a>
+    <a href="#" class="list-group-item list-group-item-warning">
+      <h4 class="list-group-item-heading">Dinner</h4>
+      <p class="list-group-item-text">Roti Canai</p>
+    </a>
+  </div>
+</div> -->
+
 </div>
 
 <div class="sb-slidebar sb-left sb-active">
@@ -120,17 +168,13 @@ var doughnutData = [
     var ctx = document.getElementById("chart-area").getContext("2d");
     window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {responsive : true});
   };
-
-
-
 </script>
-
-
   <!-- jQuery -->
     <script src="js/jquery-1.11.3.min.js"></script>
 
     <!-- Slidebars -->
     <script src="js/slidebars.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script>
   (function($) {
   $(document).ready(function() {
