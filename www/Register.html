@@ -8,35 +8,87 @@
 
 
     <link rel="stylesheet" href="css/register.css" media="screen" type="text/css" />
-    <link rel="stylesheet" href="css/font-awesome.min.css" media="screen" type="text/css" />
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/register.js"></script>
 </head>
 
 <body>
+  <div class="container">
+  	<div class="row">
+  		<div class="form-box">
+          <h2>New Account</h2>
+      	    <form role="form" id="contact-form">
+              <!-- name field -->
 
+                      <div class="input-group">
+                          <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span>
+                        </span>
+                          <input type="text" class="form-control" value="" placeholder="Name">
+                      </div>
+                      <br>
+              <!-- email field -->
+                      <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                          <input type="email" class="form-control" id="form-email-field" value="" placeholder="Email">
+                      </div>
+                      <br>
+              <!-- Password field -->
+                      <div class="input-group">
+                          <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+                          <input type="password" class="form-control" id="form-phone-field" value="" placeholder="Password">
+                      </div>
+            <br>
+            <div  class="col-md-offset-4 col-md-2 col-md-offset-5 text-center btn-group" data-toggle="buttons">
+            <label class="btn btn-gender btn-default active">
+                <input type="radio" id="gender" name="gender" value="female"> Female
+            </label>
+            <label class="btn btn-gender btn-default">
+                <input type="radio" id="gender" name="gender" value="male"> Male
+            </label>
+        </div>
 
-
-<div class="testbox">
-  <h1>New Account</h1>
-
-  <form action="/">
-      <hr>
-
-
-  <label id="icon" for="name"><i class="fa fa-envelope"></i></label>
-  <input type="text" name="name" id="name" placeholder="Email" required/>
-  <label id="icon" for="name"><i class="fa fa-user"></i></label>
-  <input type="text" name="name" id="name" placeholder="Name" required/>
-  <label id="icon" for="name"><i class="fa fa-shield"></i></label>
-  <input type="password" name="name" id="name" placeholder="Password" required/>
-  <div class="gender">
-    <input type="radio" value="None" id="male" name="gender" checked/>
-    <label for="male" class="radio" chec>Male</label>
-    <input type="radio" value="None" id="female" name="gender" />
-    <label for="female" class="radio">Female</label>
-   </div>
-   <p>By clicking Register, you agree on our <a href="#">terms and condition</a>.</p>
-   <a href="#" class="button">Register</a>
-  </form>
+                  </div>
+<!-- terms and condition -->
+      <div class="checkbox text-center">
+      <input type="checkbox"> I agree to
+      <a href="#" data-toggle="modal" data-target=".bs-example-modal-sm">terms and condition.</a>
+                      <!-- Small modal -->
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <li><p>agree "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit
+        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum." </p> </li>
+        <li><p>agree "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco
+          laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit
+          esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+          occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+          mollit anim id est laborum." </p> </li>
+    </div>
+  </div>
 </div>
+
+
+              </div>
+              <div class="col-md-offset-4 col-md-2 col-md-offset-5 text-center">
+              <a href="index.html" class="btn btn-danger">Sign in</a>
+            </div>
+
+            </form>
+  		</div>
+  	</div>
+
+<!-- jQuery -->
+  <script src="js/jquery-1.11.3.min.js"></script>
+
+  <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
