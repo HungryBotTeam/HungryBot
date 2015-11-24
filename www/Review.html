@@ -7,125 +7,184 @@
 
 
 <link href="css/star2.css" rel="stylesheet" />
-<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/slidebars.min.css">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
 
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-
-
-
-<title>Review</title>
 
 </head>
+
 <body>
-<div class="container-fluid">
-	<div class="row" style="margin-top:40px;">
-    <div class=".col-xs-6 col-md-6">
-    <div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-4 AT3RevSummary text-center">
-            <div class="AT3RevLarge">
-                83%
-            </div>
-            <div style="font-size:20px;">
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star-empty"></span>
-            <span class="glyphicon glyphicon-star-empty"></span>
-            </div>
-            <div>
-                Based on <span style="font-weight:bold">12</span> reviews
-            </div>
-        </div>
-        <div class="col-sm-4 AT3RevSummary text-center">
-            <div>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span stlye="font-weight:bold;">15</span> customers
-            </div>
-            <div>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star-empty"></span>
-                <span stlye="font-weight:bold;">15</span> customers
-            </div>
-            <div>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star-empty"></span>
-                <span class="glyphicon glyphicon-star-empty"></span>
-                <span stlye="font-weight:bold;">15</span> customers
-            </div>
-            <div>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star-empty"></span>
-                <span class="glyphicon glyphicon-star-empty"></span>
-                <span class="glyphicon glyphicon-star-empty"></span>
-                <span stlye="font-weight:bold;">15</span> customers
-            </div>
-            <div>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star-empty"></span>
-                <span class="glyphicon glyphicon-star-empty"></span>
-                <span class="glyphicon glyphicon-star-empty"></span>
-                <span class="glyphicon glyphicon-star-empty"></span>
-                <span stlye="font-weight:bold;">15</span> customers
-            </div>
-        </div>
-        <div class="col-sm-4 AT3RevSummary text-center">
-            <div style="display:table;">
-                <div style="display:table-row;">
-                    <div style="display:table-cell" class="AT3RevLarge">
-                        83
-                    </div>
-                    <div style="display:table-cell; vertical-align:middle;padding-left:10px;">
-                        customers already purchased
-                    </div>
-                </div>
-                <div style="display:table-row;">
-                    <div style="display:table-cell" class="AT3RevLarge">
-                        60
-                    </div>
-                    <div style="display:table-cell; vertical-align:middle;padding-left:10px;">
-                        of customers recommend
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        </div>
-    </div>
-		<div class=".col-xs-6 col-md-6">
-    	<div class="well well-sm">
-            <div class="text-right">
-                <a class="btn btn-success btn-green" href="#reviews-anchor" id="open-review-box">Leave a Review</a>
-            </div>
-            <div class="row" id="post-review-box" style="display:none;">
-                <div class="col-md-12">
-                    <form accept-charset="UTF-8" action="" method="post">
-                        <input id="ratings-hidden" name="rating" type="hidden">
-                        <textarea class="form-control animated" cols="50" id="new-review" name="comment" placeholder="Enter your review here..." rows="5"></textarea>
+  <!--navbar-->
+  <nav class="navbar navbar-default navbar-fixed-top sb-slide" role="navigation">
+      <!-- Left Control -->
+      <div class="sb-toggle-left navbar-left">
+        <div class="navicon-line"></div>
+        <div class="navicon-line"></div>
+        <div class="navicon-line"></div>
+      </div><!-- /.sb-control-left -->
 
-                        <div class="text-right">
-                            <div class="stars starrr" data-rating="0"></div>
-                            <a class="btn btn-danger btn-sm" href="#" id="close-review-box" style="display:none; margin-right: 10px;">
-                            <span class="glyphicon glyphicon-remove"></span>Cancel</a>
-                            <button class="btn btn-success btn-lg" type="submit">Submit</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+      <div class="container">
+        <!-- Logo -->
+        <div id="logo" class="navbar-left">
+        <img src="img/HungryBot.png" alt="Slidebars" width="30%" height="30%">
+        </div><!-- /#logo -->
 
-				<script src="js/star.js"></script>
+      </div>
+    </nav>
+    <!--site-->
+    <br>
+  <div id="sb-site">
+		<div class="container-fluid">
+			<div class="row" style="margin-top:40px;">
+		    <div class=".col-xs-6 col-md-6">
+		    <div class="container-fluid">
+		    <div class="row">
+		        <div class="col-sm-4 AT3RevSummary text-center">
+		            <div class="AT3RevLarge">
+		                83%
+		            </div>
+		            <div style="font-size:20px;">
+		            <span class="glyphicon glyphicon-star"></span>
+		            <span class="glyphicon glyphicon-star"></span>
+		            <span class="glyphicon glyphicon-star"></span>
+		            <span class="glyphicon glyphicon-star-empty"></span>
+		            <span class="glyphicon glyphicon-star-empty"></span>
+		            </div>
+		            <div>
+		                Based on <span style="font-weight:bold">12</span> reviews
+		            </div>
+		        </div>
+		        <div class="col-sm-4 AT3RevSummary text-center">
+		            <div>
+		                <span class="glyphicon glyphicon-star"></span>
+		                <span class="glyphicon glyphicon-star"></span>
+		                <span class="glyphicon glyphicon-star"></span>
+		                <span class="glyphicon glyphicon-star"></span>
+		                <span class="glyphicon glyphicon-star"></span>
+		                <span stlye="font-weight:bold;">15</span> customers
+		            </div>
+		            <div>
+		                <span class="glyphicon glyphicon-star"></span>
+		                <span class="glyphicon glyphicon-star"></span>
+		                <span class="glyphicon glyphicon-star"></span>
+		                <span class="glyphicon glyphicon-star"></span>
+		                <span class="glyphicon glyphicon-star-empty"></span>
+		                <span stlye="font-weight:bold;">15</span> customers
+		            </div>
+		            <div>
+		                <span class="glyphicon glyphicon-star"></span>
+		                <span class="glyphicon glyphicon-star"></span>
+		                <span class="glyphicon glyphicon-star"></span>
+		                <span class="glyphicon glyphicon-star-empty"></span>
+		                <span class="glyphicon glyphicon-star-empty"></span>
+		                <span stlye="font-weight:bold;">15</span> customers
+		            </div>
+		            <div>
+		                <span class="glyphicon glyphicon-star"></span>
+		                <span class="glyphicon glyphicon-star"></span>
+		                <span class="glyphicon glyphicon-star-empty"></span>
+		                <span class="glyphicon glyphicon-star-empty"></span>
+		                <span class="glyphicon glyphicon-star-empty"></span>
+		                <span stlye="font-weight:bold;">15</span> customers
+		            </div>
+		            <div>
+		                <span class="glyphicon glyphicon-star"></span>
+		                <span class="glyphicon glyphicon-star-empty"></span>
+		                <span class="glyphicon glyphicon-star-empty"></span>
+		                <span class="glyphicon glyphicon-star-empty"></span>
+		                <span class="glyphicon glyphicon-star-empty"></span>
+		                <span stlye="font-weight:bold;">15</span> customers
+		            </div>
+		        </div>
+		        <div class="col-sm-4 AT3RevSummary text-center">
+		            <div style="display:table;">
+		                <div style="display:table-row;">
+		                    <div style="display:table-cell" class="AT3RevLarge">
+		                        83
+		                    </div>
+		                    <div style="display:table-cell; vertical-align:middle;padding-left:10px;">
+		                        customers already purchased
+		                    </div>
+		                </div>
+		                <div style="display:table-row;">
+		                    <div style="display:table-cell" class="AT3RevLarge">
+		                        60
+		                    </div>
+		                    <div style="display:table-cell; vertical-align:middle;padding-left:10px;">
+		                        of customers recommend
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		        </div>
+		        </div>
+		    </div>
+				<div class=".col-xs-6 col-md-6">
+		    	<div class="well well-sm">
+		            <div class="text-right">
+		                <a class="btn btn-success btn-green" href="#reviews-anchor" id="open-review-box">Leave a Review</a>
+		            </div>
+		            <div class="row" id="post-review-box" style="display:none;">
+		                <div class="col-md-12">
+		                    <form accept-charset="UTF-8" action="" method="post">
+		                        <input id="ratings-hidden" name="rating" type="hidden">
+		                        <textarea class="form-control animated" cols="50" id="new-review" name="comment" placeholder="Enter your review here..." rows="5"></textarea>
+
+		                        <div class="text-right">
+		                            <div class="stars starrr" data-rating="0"></div>
+		                            <a class="btn btn-danger btn-sm" href="#" id="close-review-box" style="display:none; margin-right: 10px;">
+		                            <span class="glyphicon glyphicon-remove"></span>Cancel</a>
+		                            <button class="btn btn-success btn-lg" type="submit">Submit</button>
+		                        </div>
+		                    </form>
+		                </div>
+		            </div>
+		        </div>
+  </div>
+  <!--    <div id="pie-hunger"></div> -->
+</div>
+</div>
+  </div>
+
+  <div class="sb-slidebar sb-left sb-active">
+  <ul class="sb-menu">
+    <li class="sb-close"><a href="Home.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>  Home</a></li>
+    <li class="sb-close"><a href="History.html"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> History</a></li>
+    <li class="sb-close"><a href="User.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> User Profile</a></li>
+    <li class="sb-close"><a href="contacts.html"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Contacts</a></li>
+	  <li class="sb-close"><a href="Setting.html"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>  Settings</a></li>
+		<li> </li>
+    <li class="sb-close"><small>HungryBot © 2015</small></li>
+  </ul>
+
+  </div>
+
+
+
+
+  <!-- jQuery -->
+    <script src="js/jquery-1.11.3.min.js"></script>
+
+    <!-- Slidebars -->
+    <script src="js/slidebars.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+		<script src="js/star.js"></script>
+    <script>
+    (function($) {
+    $(document).ready(function() {
+    $.slidebars({
+      siteClose: true, // true or false
+      disableOver: 480, // integer or false
+      hideControlClasses: true, // true or false
+      scrollLock: true // true or false
+    });
+    });
+    }) (jQuery);
+    </script>
+
+
 
         </body>
 
