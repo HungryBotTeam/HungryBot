@@ -9,10 +9,15 @@
 
     <link rel="stylesheet" href="css/register.css" media="screen" type="text/css" />
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="js/register.js"></script>
+    <script src="js/pouchdb-5.1.0.min.js"></script>
+
+
+
 </head>
 
 <body>
+
+
   <div class="container">
   	<div class="row">
   		<div class="form-box">
@@ -24,13 +29,13 @@
                       <div class="input-group">
                           <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span>
                         </span>
-                          <input type="text" class="form-control" value="" placeholder="Name">
+                          <input type="text" class="form-control" name="username" id="username" value="" placeholder="Name">
                       </div>
                       <br>
               <!-- email field -->
                       <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-                          <input type="email" class="form-control" id="form-email-field" value="" placeholder="Email">
+                          <input type="email" class="form-control" id="email" value="" placeholder="Email">
                       </div>
                       <br>
               <!-- Password field -->
@@ -45,7 +50,7 @@
                       <input type="number" class="form-control" id="form-phone-field" value="" placeholder="Age">
                               </div>
             <br>
-            <div  class="col-md-offset-4 col-md-2 col-md-offset-5 text-center btn-group" data-toggle="buttons">
+            <div  class="col-md-offset-4 col-md-2 col-md-offset-5 text-center" data-toggle="buttons">
             <label class="btn btn-gender btn-default active">
                 <input type="radio" id="gender" name="gender" value="female"> Female
             </label>
@@ -86,7 +91,7 @@
 
               </div>
               <div class="col-md-offset-4 col-md-2 col-md-offset-5 text-center">
-              <a href="index.html" class="btn btn-danger">Register</a>
+              <input type="submit"  value="Register" class="btn btn-danger">
             </div>
 
             </form>
@@ -94,8 +99,9 @@
   	</div>
 
 <!-- jQuery -->
-  <script src="js/jquery-1.11.3.min.js"></script>
 
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script src="js/indexdb.js"></script>
   <script src="js/bootstrap.min.js"></script>
 </body>
 </html>

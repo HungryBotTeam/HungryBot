@@ -5,6 +5,14 @@ module.exports = [
         "id": "cordova-plugin-whitelist.whitelist",
         "pluginId": "cordova-plugin-whitelist",
         "runs": true
+    },
+    {
+        "file": "plugins/io.litehelpers.cordova.sqliteStorage/www/SQLitePlugin.js",
+        "id": "io.litehelpers.cordova.sqliteStorage.SQLitePlugin",
+        "pluginId": "io.litehelpers.cordova.sqliteStorage",
+        "clobbers": [
+            "SQLitePlugin"
+        ]
     }
 ];
 module.exports.metadata = 
