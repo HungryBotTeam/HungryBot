@@ -13,9 +13,31 @@
 <link href="css/style.css" rel="stylesheet">
 <link href="css/styles.css" rel="stylesheet">
 <link href="css/button.css" rel="stylesheet">
-
+<script src="js/firebase"></script>
 <script src="js/Chart.js"></script>
+<!-- jQuery -->
+  <script src="js/jquery-1.11.3.min.js"></script>
 
+<script type="text/javascript">
+
+
+$(window).load(function(){
+$(function(){
+
+$('#rectButton').on('click', function (e) {
+    alert('Hello!');
+
+
+});
+
+
+});
+});//]]>
+
+
+
+
+</script>
 <title>Home Page</title>
 
 <style>
@@ -52,9 +74,10 @@
       <br>
   <div id="sb-site">
   <div class="container">
-
+    <button id="rectButton" class="btn">Rectangle</button>
+<button id="test" class="btn btn-success btn-circle btn-lg"><i class="glyphicon glyphicon-link"></i></button>
   <div id="canvas-holder">
-    <button type="button" class="btn btn-success btn-circle btn-lg"><i class="glyphicon glyphicon-link"></i></button>
+
       <canvas id="chart-area" width="500" height="500"/>
 
     </div>
@@ -160,8 +183,7 @@ var doughnutData = [
     window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {responsive : true});
   };
 </script>
-  <!-- jQuery -->
-    <script src="js/jquery-1.11.3.min.js"></script>
+
 
     <!-- Slidebars -->
     <script src="js/slidebars.min.js"></script>
