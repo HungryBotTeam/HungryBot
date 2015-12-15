@@ -13,7 +13,7 @@
 <link href="css/style.css" rel="stylesheet">
 <link href="css/styles.css" rel="stylesheet">
 <link href="css/button.css" rel="stylesheet">
-<script src="js/firebase"></script>
+<script src="js/firebase.js"></script>
 <script src="js/Chart.js"></script>
 <!-- jQuery -->
   <script src="js/jquery-1.11.3.min.js"></script>
@@ -24,9 +24,14 @@
 $(window).load(function(){
 $(function(){
 
-$('#rectButton').on('click', function (e) {
-    alert('Hello!');
+$('#rotate').on('click', function (e) {
+  var rootRef = new Firebase('https://hungrybot.firebaseio.com/Menu');
 
+  rootRef.on("value", function(snapshot) {
+    console.log(snapshot.val());
+  }, function (errorObject) {
+    console.log("The read failed: " + errorObject.code);
+  });
 
 });
 
@@ -74,8 +79,8 @@ $('#rectButton').on('click', function (e) {
       <br>
   <div id="sb-site">
   <div class="container">
-    <button id="rectButton" class="btn">Rectangle</button>
-<button id="test" class="btn btn-success btn-circle btn-lg"><i class="glyphicon glyphicon-link"></i></button>
+
+<button id="rotate" class="btn btn-success btn-circle btn-lg"><i class="glyphicon glyphicon-link"></i></button>
   <div id="canvas-holder">
 
       <canvas id="chart-area" width="500" height="500"/>
