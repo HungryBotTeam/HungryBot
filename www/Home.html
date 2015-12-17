@@ -14,28 +14,48 @@
 <link href="css/styles.css" rel="stylesheet">
 <link href="css/button.css" rel="stylesheet">
 <script src="js/firebase.js"></script>
+
 <script src="js/Chart.js"></script>
+<script src="js/pouchdb-5.1.0.min.js"></script>
+
 <!-- jQuery -->
   <script src="js/jquery-1.11.3.min.js"></script>
+<script>
+var db = new PouchDB('http://localhost:5984/Menu');
+var local = new PouchDB('local_db');
+local.sync(db, {live: true, retry: true}).on('error', console.log.bind(console));
 
+
+ </script>
 <script type="text/javascript">
 
-
 $(window).load(function(){
+
 $(function(){
 
 $('#rotate').on('click', function (e) {
-  var rootRef = new Firebase('https://hungrybot.firebaseio.com/Menu');
 
-  rootRef.on("value", function(snapshot) {
-    console.log(snapshot.val());
-  }, function (errorObject) {
-    console.log("The read failed: " + errorObject.code);
-  });
+    var Menu = [{
+      "_id": "Normal_1",
+      "Breakfast": "Nasi Lemak",
+      "Lunch": "Chicken Rice",
+      "Dinner": "Roti Canai",
+      "Restoran": "Arked Cengal"
+    },
+    {
+    "_id": "Normal 2",
+    "diet_type": "Normal",
+    "Breakfast": "Kuih",
+    "Lunch" : "Nasi Campur",
+    "Dinner" : "Mee Goreng",
+    "Rest_name" : "Taman U"
+  }
+]
+    // db.put(Menu);
+    db.bulkDocs(Menu);
 
+    
 });
-
-
 });
 });//]]>
 
@@ -58,6 +78,10 @@ $('#rotate').on('click', function (e) {
 
 </head>
 <body>
+
+
+
+
     <!--navbar-->
   <nav class="navbar navbar-default navbar-fixed-top sb-slide" role="navigation">
   			<!-- Left Control -->
@@ -86,8 +110,9 @@ $('#rotate').on('click', function (e) {
       <canvas id="chart-area" width="500" height="500"/>
 
     </div>
-<!--    <div id="pie-hunger"></div> -->
 
+<!--    <div id="pie-hunger"></div> -->
+<pre id="display"></pre>
 
 </div>
 <div class="container">

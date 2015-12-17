@@ -1,29 +1,8 @@
-<!DOCTYPE html>
-<html><head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-
-      <script type="text/javascript" src="js/firebase.js"></script>
-      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-      <link rel="stylesheet" type="text/css" href="css/register.css">
-      <script type="text/javascript" src="js/jquery.min.js"></script>
-      <script type="text/javascript" src="js/bootstrap.min.js"></script>
-      <script type="text/javascript" src="js/path.min.js"></script>
-      <script type="text/javascript" src="js/jquery.serialize-object.compiled.js"></script>
-
-
-  <style type="text/css">
-    form {
-    display: none;
-}
-  </style>
-
-<script type="text/javascript">//<![CDATA[
-window.onload=function(){
 (function (jQuery, Firebase, Path) {
     "use strict";
 
     // the main firebase reference
-    var rootRef = new Firebase('https://hungrybot.firebaseio.com/');
+    var rootRef = new Firebase('https://glowing-inferno-4823.firebaseio.com/');
 
     // pair our routes to our form elements and controller
     var routeMap = {
@@ -57,6 +36,24 @@ window.onload=function(){
     function routeTo(route) {
         window.location.href = '#/' + route;
     }
+
+    // Handle third party login providers
+    // returns a promise
+    function thirdPartyLogin(provider) {
+        var deferred = $.Deferred();
+
+        rootRef.authWithOAuthPopup(provider, function (err, user) {
+            if (err) {
+                deferred.reject(err);
+            }
+
+            if (user) {
+                deferred.resolve(user);
+            }
+        });
+
+        return deferred.promise();
+    };
 
     // Handle Email/Password login
     // returns a promise
@@ -101,6 +98,25 @@ window.onload=function(){
             .then(function () {
             return authWithPassword(userObj);
         });
+    }
+
+    // authenticate anonymously
+    // returns a promise
+    function authAnonymously() {
+        var deferred = $.Deferred();
+        rootRef.authAnonymously(function (err, authData) {
+
+            if (authData) {
+                deferred.resolve(authData);
+            }
+
+            if (err) {
+                deferred.reject(err);
+            }
+
+        });
+
+        return deferred.promise();
     }
 
     // route to the specified route if sucessful
@@ -151,6 +167,24 @@ window.onload=function(){
 
         });
 
+        // Social buttons
+        form.children('.bt-social').on('click', function (e) {
+
+            var $currentButton = $(this);
+            var provider = $currentButton.data('provider');
+            var socialLoginPromise;
+            e.preventDefault();
+
+            socialLoginPromise = thirdPartyLogin(provider);
+            handleAuthResponse(socialLoginPromise, 'profile');
+
+        });
+
+        form.children('#btAnon').on('click', function (e) {
+            e.preventDefault();
+            handleAuthResponse(authAnonymously(), 'profilex');
+        });
+
     };
 
     // logout immediately when the controller is invoked
@@ -193,9 +227,8 @@ window.onload=function(){
             }
 
             // set the fields
-            form.find('#txtName').val(user.Name);
-            form.find('#txtAge').val(user.Age);
-            form.find('#gender').val(user.Gender);
+            form.find('#txtName').val(user.name);
+            form.find('#ddlDino').val(user.favoriteDinosaur);
         });
 
         // Save user's info to Firebase
@@ -271,7 +304,7 @@ window.onload=function(){
     Path.map("#/").to(prepRoute);
     Path.map("#/logout").to(prepRoute);
     Path.map("#/register").to(prepRoute);
-    Path.map("#/profil").to(prepRoute);
+    Path.map("#/profile").to(prepRoute);
 
     Path.root("#/");
 
@@ -305,119 +338,3 @@ window.onload=function(){
     });
 
 }(window.jQuery, window.Firebase, window.Path))
-}//]]>
-
-</script>
-
-</head>
-<body>
-
-<div id="container" class="container">
-    <!-- LOGIN -->
-    <form id="frmLogin" role="form" class="form-box" style="display: block;">
-         <h2>Login</h2>
-         <hr>
-        <div class="form-group">
-            <label for="txtEmail">Email address</label>
-            <input type="email" class="form-control" id="txtEmail" placeholder="Email" name="email">
-        </div>
-        <div class="form-group">
-            <label for="txtPass">Password</label>
-            <input type="password" class="form-control" id="txtPass" placeholder="Password" name="password">
-        </div>
-        <button type="submit" class="btn btn-danger btn-block">Login</button>
-        <div class="text-center">
-          <br>
-          <a href="#/register">Register as a member</a> </div>
-
-    </form>
-    <!-- / LOGIN -->
-    <!-- LOGOUT -->
-    <form id="frmLogout" role="form">
-         <h2>You are logged out!</h2>
-
-    </form>
-    <!-- / LOGOUT -->
-    <!-- REGISTER -->
-    <form id="frmRegister" role="form" class="form-box">
-         <h2>New Account</h2>
-          <hr>
-        <div class="form-group">
-            <label for="txtRegEmail">Email address</label>
-            <input type="email" class="form-control" id="txtEmail" placeholder="Email" name="email">
-        </div>
-        <div class="form-group">
-            <label for="txtRegPass">Password</label>
-            <input type="password" class="form-control" id="txtPass" placeholder="Password" name="password">
-        </div>
-
-        <!-- terms and condition -->
-        <div class="text-center">
-              <a href="#" data-toggle="modal" data-target=".bs-example-modal-sm">Read the terms and condition</a>
-        </div>
-                              <!-- Small modal -->
-        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-          <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-              <li><p>agree "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit in voluptate velit
-                esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit anim id est laborum." </p> </li>
-            </div>
-          </div>
-        </div>
-
-         <button type="submit" class="btn btn-danger btn-block">Create Now!</button>
-    </form>
-                      </div>
-
-    <!-- / REGISTER -->
-    <!-- PROFILE -->
-    <form id="frmProfile" role="form" class="form-box">
-         <h2>Update Profile</h2>
-         <hr>
-        <br>
-        <div class="form-group">
-            <label for="txtName">Name</label>
-            <input type="text" class="form-control" id="txtName" placeholder="Name" name="Name">
-        </div>
-
-        <div class="form-group">
-            <label for="txtAge">Age</label>
-            <input type="number" class="form-control" id="txtAge" placeholder="Name" name="Age">
-        </div>
-
-
-        <div class="form-group">
-            <label for="gender">Gender</label>
-            <select id="gender" name="Gender" class="form-control">
-                <option>None</option>
-                <option>Male</option>
-                <option>Female</option>
-            </select>
-        </div>
-        <div class="text-center">
-        <button type="submit" class="btn btn-danger">Update</button>
-      </div>
-    </form>
-    <!-- / PROFILE -->
-    <hr>
-    <!-- ALERT BOX -->
-    <div id="alert" class="alert alert-info" role="alert">
-         <h4 id="alert-title">You are not logged in</h4>
-
-        <p id="alert-detail"></p>
-    </div>
-    <!-- / ALERT BOX -->
-</div>
-
-
-
-
-
-</body>
-</html>

@@ -12,9 +12,57 @@
 <link href="css/example-styles.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 <link href="css/styles.css" rel="stylesheet">
+<link href="css/button.css" rel="stylesheet">
+<script src="js/firebase.js"></script>
 
 <script src="js/Chart.js"></script>
+<script src="js/pouchdb-5.1.0.min.js"></script>
 
+<!-- jQuery -->
+  <script src="js/jquery-1.11.3.min.js"></script>
+<script>
+var db = new PouchDB('http://localhost:5984/Menu');
+var local = new PouchDB('local_db');
+local.sync(db, {live: true, retry: true}).on('error', console.log.bind(console));
+
+
+ </script>
+<script type="text/javascript">
+
+$(window).load(function(){
+
+$(function(){
+
+$('#rotate').on('click', function (e) {
+
+    var Menu = [{
+      "_id": "Normal_1",
+      "Breakfast": "Nasi Lemak",
+      "Lunch": "Chicken Rice",
+      "Dinner": "Roti Canai",
+      "Restoran": "Arked Cengal"
+    },
+    {
+    "_id": "Normal 2",
+    "diet_type": "Normal",
+    "Breakfast": "Kuih",
+    "Lunch" : "Nasi Campur",
+    "Dinner" : "Mee Goreng",
+    "Rest_name" : "Taman U"
+  }
+]
+    // db.put(Menu);
+    db.bulkDocs(Menu);
+
+    
+});
+});
+});//]]>
+
+
+
+
+</script>
 <title>Home Page</title>
 
 <style>
@@ -30,6 +78,10 @@
 
 </head>
 <body>
+
+
+
+
     <!--navbar-->
   <nav class="navbar navbar-default navbar-fixed-top sb-slide" role="navigation">
   			<!-- Left Control -->
@@ -51,14 +103,20 @@
       <br>
   <div id="sb-site">
   <div class="container">
-  <div id="canvas-holder">
-      <canvas id="chart-area" width="500" height="500"/>
-    </div>
-<!--    <div id="pie-hunger"></div> -->
 
+<button id="rotate" class="btn btn-success btn-circle btn-lg"><i class="glyphicon glyphicon-link"></i></button>
+  <div id="canvas-holder">
+
+      <canvas id="chart-area" width="500" height="500"/>
+
+    </div>
+
+<!--    <div id="pie-hunger"></div> -->
+<pre id="display"></pre>
 
 </div>
 <div class="container">
+
   <h2 class="text-center">Today</h2>
   <div class="panel-group" id="accordion">
     <div class="panel panel-default">
@@ -93,23 +151,7 @@
     </div>
   </div>
 </div>
-<!--<div class="container">
-  <h3 class="text-center">Today </h3>
-  <div class="list-group">
-    <a href="#" class="list-group-item list-group-item-success">
-      <h4 class="list-group-item-heading">Breakfast</h4>
-      <p class="list-group-item-text">Halfboiled egg and Toast</p>
-    </a>
-    <a href="#" class="list-group-item list-group-item-info">
-      <h4 class="list-group-item-heading">Lunch</h4>
-      <p class="list-group-item-text">Rice with chicken curry</p>
-    </a>
-    <a href="#" class="list-group-item list-group-item-warning">
-      <h4 class="list-group-item-heading">Dinner</h4>
-      <p class="list-group-item-text">Roti Canai</p>
-    </a>
-  </div>
-</div> -->
+
 
 </div>
 
@@ -171,8 +213,7 @@ var doughnutData = [
     window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {responsive : true});
   };
 </script>
-  <!-- jQuery -->
-    <script src="js/jquery-1.11.3.min.js"></script>
+
 
     <!-- Slidebars -->
     <script src="js/slidebars.min.js"></script>
