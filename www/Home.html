@@ -34,27 +34,29 @@ $(window).load(function(){
 $(function(){
 
 $('#rotate').on('click', function (e) {
+  db.get('Normal_1').then(function (Menu) {
+    console.log(Menu);
+  });
+//     var Menu = [{
+//       "_id": "Normal_1",
+//       "Breakfast": "Nasi Lemak",
+//       "Lunch": "Chicken Rice",
+//       "Dinner": "Roti Canai",
+//       "Restoran": "Arked Cengal"
+//     },
+//     {
+//     "_id": "Normal 2",
+//     "diet_type": "Normal",
+//     "Breakfast": "Kuih",
+//     "Lunch" : "Nasi Campur",
+//     "Dinner" : "Mee Goreng",
+//     "Rest_name" : "Taman U"
+//   }
+// ]
+//     // db.put(Menu);
+//     db.bulkDocs(Menu);
 
-    var Menu = [{
-      "_id": "Normal_1",
-      "Breakfast": "Nasi Lemak",
-      "Lunch": "Chicken Rice",
-      "Dinner": "Roti Canai",
-      "Restoran": "Arked Cengal"
-    },
-    {
-    "_id": "Normal 2",
-    "diet_type": "Normal",
-    "Breakfast": "Kuih",
-    "Lunch" : "Nasi Campur",
-    "Dinner" : "Mee Goreng",
-    "Rest_name" : "Taman U"
-  }
-]
-    // db.put(Menu);
-    db.bulkDocs(Menu);
 
-    
 });
 });
 });//]]>
@@ -112,7 +114,7 @@ $('#rotate').on('click', function (e) {
     </div>
 
 <!--    <div id="pie-hunger"></div> -->
-<pre id="display"></pre>
+
 
 </div>
 <div class="container">
@@ -158,14 +160,13 @@ $('#rotate').on('click', function (e) {
 <div class="sb-slidebar sb-left sb-active">
 		<ul class="sb-menu">
       <li class="sb-close"><a href="History.html"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> History</a></li>
-			<li class="sb-close"><a href="User.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> User Profile</a></li>
       <li class="sb-close"><a href="Review.html"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> Review</a></li>
       <li class="sb-close"><a href="Contact.html"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Contacts</a></li>
-      <li class="sb-close"><a href="Setting.html"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>  Settings</a></li>
+      <li class="sb-close"><a href="profile.html"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>  Settings</a></li>
       <li> </li>
       <br>
       <br>
-      <li class="sb-close"><a href="#"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li>
+      <li class="sb-close"><a href="login.html#/logout"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li>
       <li class="sb-close"><small>HungryBot © 2015</small></li>
 		</ul>
 

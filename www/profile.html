@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html><head>
+  <!-- <meta http-equiv="content-type" content="text/html; charset=UTF-8"> -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+      <script type="text/javascript" src="js/firebase.js"></script>
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="css/register.css">
+      <script type="text/javascript" src="js/jquery.min.js"></script>
+      <script type="text/javascript" src="js/bootstrap.min.js"></script>
+      <!-- <script type="text/javascript" src="js/path.min.js"></script> -->
+      <script type="text/javascript" src="js/jquery.serialize-object.compiled.js"></script>
+
+<script>
+window.onload=function(){
+(function (jQuery, Firebase) {
+    "use strict";
+    // the main firebase reference
+var rootRef = new Firebase('https://hungrybot.firebaseio.com/');
+  var alertBox = $('#alert');
+  
+  // options for showing the alert box
+  function showAlert(opts) {
+      var title = opts.title;
+      var detail = opts.detail;
+      var className = 'alert ' + opts.className;
+
+      alertBox.removeClass().addClass(className);
+      alertBox.children('#alert-title').text(title);
+      alertBox.children('#alert-detail').text(detail);
+  }
+
+function (form) {
+    // Check the current user
+    var user = rootRef.getAuth();
+    var userRef;
+
+    // // If no current user send to register page
+    // if (!user) {
+    //     routeTo('register');
+    //     return;
+    // }
+
+    // Load user info
+    userRef = rootRef.child('users').child(user.uid);
+    userRef.once('value', function (snap) {
+        var user = snap.val();
+        if (!user) {
+            return;
+        }
+
+        // set the fields
+        form.find('#txtName').val(user.Name);
+        form.find('#txtAge').val(user.Age);
+        form.find('#gender').val(user.Gender);
+        form.find('#diet_type').val(user.Diet_Choice);
+    });
+
+    // Save user's info to Firebase
+    form.on('submit', function (e) {
+        e.preventDefault();
+        var userInfo = $(this).serializeObject();
+
+        userRef.set(userInfo, function onComplete() {
+
+            // show the message if write is successful
+            showAlert({
+                title: 'Successfully saved!',
+                detail: 'You are still logged in',
+                className: 'alert-success'
+            });
+
+        });
+    });
+
+};
+}(window.jQuery, window.Firebase))
+}//]]>
+</script>
+
+</head>
+<body>
+  <div id="container" class="container">
+
+    <!-- PROFILE -->
+    <form id="frmProfile" role="form" class="form-box">
+         <h2>Update Profile</h2>
+         <hr>
+        <br>
+        <div class="form-group">
+            <label for="txtName">Name</label>
+            <input type="text" class="form-control" id="txtName" placeholder="Name" name="Name">
+        </div>
+
+        <div class="form-group">
+            <label for="txtAge">Age</label>
+            <input type="number" class="form-control" id="txtAge" placeholder="Name" name="Age">
+        </div>
+
+
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <select id="gender" name="Gender" class="form-control">
+                <option>None</option>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="diet_type">Diet Choice</label>
+            <select id="diet_type" name="Diet_Choice" class="form-control">
+                <option>None</option>
+                <option>Normal</option>
+                <option>Healthy</option>
+                <option>Beast</option>
+            </select>
+        </div>
+        <div class="text-center">
+        <button type="submit"  class="btn btn-danger">Update</button>
+      </div>
+    </form>
+    <!-- / PROFILE -->
+    <hr>
+    <!-- ALERT BOX -->
+    <div id="alert" class="alert alert-info" role="alert">
+         <h4 id="alert-title">You are not logged in</h4>
+
+        <p id="alert-detail"></p>
+    </div>
+    <!-- / ALERT BOX -->
+</div>
+  </body>
+
+  </body>
+  </html>

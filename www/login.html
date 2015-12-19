@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html><head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-
+  <!-- <meta http-equiv="content-type" content="text/html; charset=UTF-8"> -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
       <script type="text/javascript" src="js/firebase.js"></script>
       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="css/register.css">
@@ -196,6 +197,7 @@ window.onload=function(){
             form.find('#txtName').val(user.Name);
             form.find('#txtAge').val(user.Age);
             form.find('#gender').val(user.Gender);
+            form.find('#diet_type').val(user.Diet_Choice);
         });
 
         // Save user's info to Firebase
@@ -271,7 +273,7 @@ window.onload=function(){
     Path.map("#/").to(prepRoute);
     Path.map("#/logout").to(prepRoute);
     Path.map("#/register").to(prepRoute);
-    Path.map("#/profil").to(prepRoute);
+    Path.map("#/profile").to(prepRoute);
 
     Path.root("#/");
 
@@ -359,14 +361,7 @@ window.onload=function(){
         <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
           <div class="modal-dialog modal-sm">
             <div class="modal-content">
-              <li><p>agree "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit in voluptate velit
-                esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit anim id est laborum." </p> </li>
+              <li><p>I agree to let my information to be used. </p> </li>
             </div>
           </div>
         </div>
@@ -400,8 +395,17 @@ window.onload=function(){
                 <option>Female</option>
             </select>
         </div>
+        <div class="form-group">
+            <label for="diet_type">Diet Choice</label>
+            <select id="diet_type" name="Diet_Choice" class="form-control">
+                <option>None</option>
+                <option>Normal</option>
+                <option>Healthy</option>
+                <option>Beast</option>
+            </select>
+        </div>
         <div class="text-center">
-        <button type="submit" class="btn btn-danger">Update</button>
+        <button type="submit" onClick="location.href='Home.html'" class="btn btn-danger">Update</button>
       </div>
     </form>
     <!-- / PROFILE -->
