@@ -18,7 +18,7 @@ window.onload=function(){
     // the main firebase reference
 var rootRef = new Firebase('https://hungrybot.firebaseio.com/');
   var alertBox = $('#alert');
-  
+
   // options for showing the alert box
   function showAlert(opts) {
       var title = opts.title;
@@ -116,17 +116,17 @@ function (form) {
             </select>
         </div>
         <div class="text-center">
-        <button type="submit"  class="btn btn-danger">Update</button>
+        <button type="submit"  onClick="location.href='Home.html'" class="btn btn-danger" >Update</button>
       </div>
     </form>
     <!-- / PROFILE -->
     <hr>
     <!-- ALERT BOX -->
-    <div id="alert" class="alert alert-info" role="alert">
+    <!-- <div id="alert" class="alert alert-info" role="alert">
          <h4 id="alert-title">You are not logged in</h4>
 
         <p id="alert-detail"></p>
-    </div>
+    </div> -->
     <!-- / ALERT BOX -->
 </div>
   </body>
